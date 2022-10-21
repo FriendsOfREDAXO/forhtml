@@ -18,7 +18,7 @@ if (isset($this->help) && $this->help === true) {
     $help['body_prepend'] = 'vor Body (String)';
     $help['body_append']  = 'nach Body (String)';
     $help['footer']       = 'Footer (String)';
-    $help['style']        = 'Hier können css-classes zur uk-card ergänzt werden "';
+    $help['style']        = 'Hier können css-classes zur uk-card ergänzt werden(string) ';
     $helpout = dump($help);
 }
 
