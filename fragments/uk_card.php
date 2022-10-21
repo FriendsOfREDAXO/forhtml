@@ -13,7 +13,12 @@ if (isset($this->help) && $this->help === true) {
     $help = [];
     $help['media']        = 'Nimmt ein Medium an (String)';
     $help['media_bottom'] = 'Definiert ob das Medium am Ende dargestellt werden soll (bool)';
-    $help['style']        = 'Definiert den Style-Attribut(String) -> Wenn nichts vorgegeben ist, wird "default verwendet"';
+    $help['title']        = 'Titel (String)';
+    $help['body']         = 'Body (String)';
+    $help['body_prepend'] = 'vor Body (String)';
+    $help['body_append']  = 'nach Body (String)';
+    $help['footer']       = 'Footer (String)';
+    $help['style']        = 'Definiert das Style-Attribut(String) -> Wenn nichts vorgegeben ist, wird "default verwendet"';
     $helpout = dump($help);
 }
 
