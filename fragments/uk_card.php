@@ -5,12 +5,9 @@
  * @psalm-scope-this rex_fragment
  */
 
-#Deklaration der Variablen
-$media = '';
-$media_bottom = '';
-$style = '';
-$helpout = '';
-
+// Deklaration der Variablen
+$media = $style = $helpout = '';
+$media_bottom  = false; 
 
 if (isset($this->help) && $this->help === true) {
     $help = [];
@@ -20,14 +17,14 @@ if (isset($this->help) && $this->help === true) {
     $helpout = dump($help);
 }
 
-#Überprüfung, ob Bild vorhanden -> Ausgabe unten
+// Überprüfung, ob Bild vorhanden -> Ausgabe unten
 if (isset($this->media_bottom) && $this->media_bottom === true) {
     $media_bottom = '<div class="uk-card-media-bottom"> ' . $this->media . '></div>';
     #Überprüfung, ob Bild vorhanden -> Bild Ausgabe oben
 } else if (isset($this->media) && $this->media != '') {
     $media  = '<div class="uk-card-media-top">' . $this->media . '</div>';
 }
-#Überprüfung, ob Style definiert ist -> Ausgabe
+// Überprüfung, ob Style definiert ist -> Ausgabe
 if (isset($this->style) && $this->style != '') {
     $style = ' ' . $this->style;
 } else { # sonst Default-Ausgabe
