@@ -1,0 +1,9 @@
+package: fe_fragments 
+version: '1.0.0-dev'
+author: KLXM Crossmedia
+supportpage: https://klxm.de
+
+requires:
+    redaxo: '^5.14' 
+    php:
+        version: '>=7.4'
