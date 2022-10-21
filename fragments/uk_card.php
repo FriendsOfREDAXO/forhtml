@@ -18,27 +18,24 @@ if (isset($this->help) && $this->help === true) {
     $help['body_prepend'] = 'vor Body (String)';
     $help['body_append']  = 'nach Body (String)';
     $help['footer']       = 'Footer (String)';
-    $help['style']        = 'Definiert das Style-Attribut(String) -> Wenn nichts vorgegeben ist, wird "default verwendet"';
+    $help['style']        = 'Hier können css-classes zur uk-card ergänzt werden "';
     $helpout = dump($help);
 }
 
-// Überprüfung, ob Bild vorhanden -> Ausgabe unten
-if (isset($this->media_bottom) && $this->media_bottom === true) {
-    $media_bottom = '<div class="uk-card-media-bottom"> ' . $this->media . '></div>';
-    #Überprüfung, ob Bild vorhanden -> Bild Ausgabe oben
-} else if (isset($this->media) && $this->media != '') {
+// check if media and position are set
+if (isset($this->media) && $this->media != '') {  
     $media  = '<div class="uk-card-media-top">' . $this->media . '</div>';
-}
-// Überprüfung, ob Style definiert ist -> Ausgabe
-if (isset($this->style) && $this->style != '') {
-    $style = ' ' . $this->style;
-} else { # sonst Default-Ausgabe
-    $style = ' uk-card-default';
+    if (isset($this->media_bottom) && $this->media_bottom === true)
+    {
+    $media = '';    
+    $media_bottom  = '<div class="uk-card-media-bottom">' . $this->media . '</div>';   
+    }
+    
 }
 ?>
 
 <div>
-    <div class="uk-card<?= $style ?>">
+    <div class="uk-card <?= (isset($this->style) ? $this->style : '')?>">
         <?= $media ?>
         <?php if (isset($this->title) && $this->title != '') : ?>
             <div class="uk-card-header">
