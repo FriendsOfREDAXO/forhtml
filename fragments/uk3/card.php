@@ -20,6 +20,7 @@ if (isset($this->help) && $this->help === true) {
     $help['body_append']  = 'nach Body (String)';
     $help['footer']       = 'Footer (String)';
     $help['main_attributes']   = 'Hier können Attribute zur uk-card ergänzt werden (array), bei class werden diese an .uk-card angehägnt ';
+    $help['body_attributes']   = 'Hier können Attribute zum body ergänzt werden (array), bei class werden diese angehägnt ';
     dump($help);
 }
 
