@@ -19,7 +19,7 @@ if (isset($this->help) && $this->help === true) {
     $help['body_prepend'] = 'vor Body (String)';
     $help['body_append']  = 'nach Body (String)';
     $help['footer']       = 'Footer (String)';
-    $help['style']        = 'Hier können css-classes zur uk-card ergänzt werden(string) ';
+    $help['attributes']        = 'Hier können css-classes zur uk-card ergänzt werden (array) ';
     $helpout = dump($help);
 }
 
@@ -33,10 +33,22 @@ if (isset($this->media) && $this->media != '') {
     }
     
 }
+// default is allways uk-card
+$attributes = ['class'=>'uk-card']; 
+
+if(isset($this->attributes) && is_array($this-attributes))
+{
+    if(array_key_exists('class',$this-attributes))
+    {
+    $this->attributes['class'] = 'uk-card '.$this->arttributes['class'];
+    }
+    $attributes = $this->arttributes;
+}
+$attributes = rex_string::buildAttributes($attributes)    
 ?>
 
 <div>
-    <div class="uk-card <?= (isset($this->style) ? $this->style : '')?>">
+    <div class="<?=$attributes?>">
         <?= $media ?>
         <?php if (isset($this->title) && $this->title != '') : ?>
             <div class="uk-card-header">
