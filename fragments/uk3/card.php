@@ -48,8 +48,7 @@ $attributes_out = rex_string::buildAttributes($attributes);
         <?= $media ?>
         <?php if (isset($this->title) && $this->title != '') : ?>
             <div class="uk-card-header">
-                <h3 class="uk-card-title">
-                    <?= $this->title ?></h3>
+                <h3 class="uk-card-title"><?= $this->title ?></h3>
             </div>
         <?php endif; ?>
         <div class="uk-card-body">
