@@ -5,7 +5,7 @@ if (isset($this->help) && $this->help === true) {
     $help['body']         = 'Body (String)';
     $help['body_prepend'] = 'vor Body (String)';
     $help['body_append']  = 'nach Body (String)';
-    $help['attributes']   = 'Hier können Attribute zur uk-card ergänzt werden (array), bei class werden diese an .uk-section angehägnt ';
+    $help['attributes']   = 'Hier können Attribute zur ergänzt werden (array), bei class werden diese an .uk-section angehägnt ';
     dump($help);
 }
 
