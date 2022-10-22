@@ -6,7 +6,7 @@
  */
 
 // Deklaration der Variablen
-$media = $style = $helpout = '';
+$media = $style;
 $media_bottom  = false; 
 
 if (isset($this->help) && $this->help === true) {
@@ -20,7 +20,7 @@ if (isset($this->help) && $this->help === true) {
     $help['body_append']  = 'nach Body (String)';
     $help['footer']       = 'Footer (String)';
     $help['attributes']   = 'Hier können Attribute zur uk-card ergänzt werden (array), bei class werden diese an .uk-card angehänt ';
-    $helpout = dump($help);
+    dump($help);
 }
 
 // check if media and position are set
