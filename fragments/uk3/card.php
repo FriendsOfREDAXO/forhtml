@@ -44,7 +44,7 @@ $attributes_out = rex_string::buildAttributes($attributes);
 ?>
 
 <div>
-    <div<?= $attributes_code ?>>
+    <div<?= $attributes_out?>>
         <?= $media ?>
         <?php if (isset($this->title) && $this->title != '') : ?>
             <div class="uk-card-header">
