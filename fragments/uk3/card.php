@@ -77,7 +77,7 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
         <?php endif; ?> 
         <?php if (isset($this->footer) && $this->footer != '') : ?>
             <div class="uk-card-footer">
-                <a href="#"><?= $this->footer ?></a>
+                <?= $this->footer ?>
             </div>
         <?php endif; ?>
         <?= $media_bottom ?>
