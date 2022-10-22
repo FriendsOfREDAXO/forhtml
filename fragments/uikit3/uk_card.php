@@ -42,7 +42,7 @@ if (isset($this->attributes) && is_array($this->attributes)) {
 }
 $attributes_out = rex_string::buildAttributes($attributes);
 ?>
-<hr>
+
 <div>
     <div<?= $attributes_code ?>>
         <?= $media ?>
@@ -69,5 +69,5 @@ $attributes_out = rex_string::buildAttributes($attributes);
             </div>
         <?php endif; ?>
         <?= $media_bottom ?>
-</div>
+    </div>
 </div>
