@@ -6,8 +6,8 @@
  */
 
 // Deklaration der Variablen
-$media = $style;
-$media_bottom  = false; 
+$media = $attributes_code = $style = '';
+$media_bottom  = false;
 
 if (isset($this->help) && $this->help === true) {
     $help = [];
@@ -24,31 +24,27 @@ if (isset($this->help) && $this->help === true) {
 }
 
 // check if media and position are set
-if (isset($this->media) && $this->media != '') {  
+if (isset($this->media) && $this->media != '') {
     $media  = '<div class="uk-card-media-top">' . $this->media . '</div>';
-    if (isset($this->media_bottom) && $this->media_bottom === true)
-    {
-    $media = '';    
-    $media_bottom  = '<div class="uk-card-media-bottom">' . $this->media . '</div>';   
+    if (isset($this->media_bottom) && $this->media_bottom === true) {
+        $media = '';
+        $media_bottom  = '<div class="uk-card-media-bottom">' . $this->media . '</div>';
     }
-    
 }
 // default is allways uk-card
-$attributes = ['class'=>'uk-card']; 
-
-if(isset($this->attributes) && is_array($this->attributes))
-{
-    if(array_key_exists('class',$this->attributes))
-    {
-    $this->attributes['class'] = 'uk-card '.$this->arttributes['class'];
+$attributes = [];
+$attributes['class'] = 'uk-card';
+if (isset($this->attributes) && is_array($this->attributes)) {
+    if (array_key_exists('class', $this->attributes)) {
+        $class = $this->attributes['class'];
+        $attributes['class'] = 'uk-card ' . $class;
     }
-    $attributes = $this->arttributes;
 }
-$attributes = rex_string::buildAttributes($attributes)    
+$attributes_code = rex_string::buildAttributes($attributes);
 ?>
-
+<hr>
 <div>
-    <div class="<?=$attributes?>">
+    <div<?= $attributes_code ?>>
         <?= $media ?>
         <?php if (isset($this->title) && $this->title != '') : ?>
             <div class="uk-card-header">
@@ -73,5 +69,5 @@ $attributes = rex_string::buildAttributes($attributes)
             </div>
         <?php endif; ?>
         <?= $media_bottom ?>
-    </div>
+</div>
 </div>
