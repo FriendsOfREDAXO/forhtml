@@ -36,9 +36,9 @@ if (isset($this->media) && $this->media != '') {
 // default is allways uk-card
 $attributes = ['class'=>'uk-card']; 
 
-if(isset($this->attributes) && is_array($this-attributes))
+if(isset($this->attributes) && is_array($this->attributes))
 {
-    if(array_key_exists('class',$this-attributes))
+    if(array_key_exists('class',$this->attributes))
     {
     $this->attributes['class'] = 'uk-card '.$this->arttributes['class'];
     }
