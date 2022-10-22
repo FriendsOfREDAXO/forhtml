@@ -64,17 +64,17 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
                 <h3 class="uk-card-title"><?= $this->title ?></h3>
             </div>
         <?php endif; ?>
-        <div<?= $attributes_body ?>>
-            <?php if (isset($this->body_prepend) && $this->body_prepend != '') : ?>
-                <?= $this->body_prepend ?>
-            <?php endif; ?>
+       <?php if (isset($this->body_prepend) && $this->body_prepend != '') : ?>
+       <?= $this->body_prepend ?>
+       <?php endif; ?> 
+        <div<?= $attributes_body ?>>   
             <?php if (isset($this->body) && $this->body != '') : ?>
                 <?= $this->body ?>
             <?php endif; ?>
-            <?php if (isset($this->body_append) && $this->body_append != '') : ?>
-                <?= $this->body_append ?>
-            <?php endif; ?>
         </div>
+        <?php if (isset($this->body_append) && $this->body_append != '') : ?>
+        <?= $this->body_append ?>
+        <?php endif; ?> 
         <?php if (isset($this->footer) && $this->footer != '') : ?>
             <div class="uk-card-footer">
                 <a href="#"><?= $this->footer ?></a>
