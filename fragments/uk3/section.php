@@ -1,7 +1,7 @@
 <?php
 if (isset($this->help) && $this->help === true) {
     $help = [];
-    $help['info']         = 'Das Fragment ezeugt UiKit-Cards: https://getuikit.com/assets/uikit/tests/card.html';
+    $help['info']         = 'Das Fragment ezeugt eine Section: https://getuikit.com/assets/uikit/tests/section.html';
     $help['body']         = 'Body (String)';
     $help['body_prepend'] = 'vor Body (String)';
     $help['body_append']  = 'nach Body (String)';
