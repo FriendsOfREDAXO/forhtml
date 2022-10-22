@@ -6,7 +6,7 @@
  */
 
 // Deklaration der Variablen
-$media = $attributes_code = $style = '';
+$media = $attributes_out = $style = '';
 $media_bottom  = false;
 
 if (isset($this->help) && $this->help === true) {
@@ -40,7 +40,7 @@ if (isset($this->attributes) && is_array($this->attributes)) {
         $attributes['class'] = 'uk-card ' . $class;
     }
 }
-$attributes_code = rex_string::buildAttributes($attributes);
+$attributes_out = rex_string::buildAttributes($attributes);
 ?>
 <hr>
 <div>
