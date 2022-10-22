@@ -13,7 +13,7 @@ $attributes['class'] = 'uk-section';
 if (isset($this->attributes) && is_array($this->attributes)) {
     if (array_key_exists('class', $this->attributes)) {
         $class = $this->attributes['class'];
-        $attributes['class'] = 'uk-card ' . $class;
+        $attributes['class'] = 'uk-section ' . $class;
     }
 }
 $attributes_out = rex_string::buildAttributes($attributes);
