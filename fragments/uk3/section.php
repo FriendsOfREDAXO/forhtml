@@ -11,6 +11,7 @@ if (isset($this->help) && $this->help === true) {
 $attributes = [];
 $attributes['class'] = 'uk-section';
 if (isset($this->attributes) && is_array($this->attributes)) {
+    $attributes = $this->attributes;
     if (array_key_exists('class', $this->attributes)) {
         $class = $this->attributes['class'];
         $attributes['class'] = 'uk-section ' . $class;
