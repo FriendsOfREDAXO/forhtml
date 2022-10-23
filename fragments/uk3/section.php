@@ -3,7 +3,7 @@ if (isset($this->help) && $this->help === true) {
     $help = [];
     $help['info']         = 'Das Fragment ezeugt eine Section: https://getuikit.com/assets/uikit/tests/section.html';
     $help['body']         = 'Body (String)';
-    $help['attributes']   = 'Hier können Attribute zur ergänzt werden (array), bei class werden diese an .uk-section angehägnt ';
+    $help['attributes']   = 'Hier können Attribute ergänzt werden (array), bei class werden diese an .uk-section angehägnt ';
     dump($help);
 }
 
