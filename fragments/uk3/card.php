@@ -12,6 +12,7 @@ $media_bottom  = false;
 if (isset($this->help) && $this->help === true) {
     $help = [];
     $help['info']         = 'Das Fragment ezeugt UiKit-Cards: https://getuikit.com/assets/uikit/tests/card.html';
+    $help['wrap']         = 'Wenn gesetzt wird ein Wrapper-Div um die Card gelegt und optional css classes angenommen (String)';
     $help['media']        = 'Nimmt Markup für ein Medium / uk-media an (String)';
     $help['media_bottom'] = 'Definiert ob das Medium am Ende dargestellt werden soll (bool)';
     $help['title']        = 'Titel bzw. Header (String)';
