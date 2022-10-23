@@ -31,8 +31,9 @@ foreach ($urlaubsziele as $ziel) {
         $medium = FORHtml::createElement('img')
              ->addClass('uk-width-1-1')
              ->set('alt', 'Bild zum' . $ziel->title)
+             ->set('title', 'Bild zum' . $ziel->title)
+             ->set('uk-tooltip ', '')
              ->set('src', rex_media_manager::getUrl('card_image', $media[0]));
-
         $fragment->setVar('media', $medium, false);
         $fragment->setVar('media_bottom', true, false);
         $medium = '';
@@ -42,13 +43,16 @@ foreach ($urlaubsziele as $ziel) {
     $fragment->setVar('main_attributes', $attributes_main, false);
     $fragment->setVar('title', $ziel->title, false);
     $fragment->setVar('body', $ziel->infotext, false);
-    $cards[] = FORHtml::createElement('div')->text($fragment->parse('/uk3/card.php'))
+    $cards[] = FORHtml::createElement('div')
+        ->text($fragment->parse('/uk3/card.php'))
         ->addClass('wrapper uk-background-secondary');
 }
 
 if (count($cards >= 1)) {
     // Tag hinzufügen mittels FORHtml
-    $output_cards = FORHtml::createElement('div')->text(implode($cards))->addClass('uk-child-width-1-3@m uk-grid-match')
+    $output_cards = FORHtml::createElement('div')
+        ->text(implode($cards))
+        ->addClass('uk-child-width-1-3@m uk-grid-match')
         ->set('uk-grid', '');
 
     // Übergabe an Container
@@ -70,6 +74,5 @@ if (count($cards >= 1)) {
     $section = $fragment->parse('/uk3/section.php');
     echo $section;
 }
-
 
 ```
