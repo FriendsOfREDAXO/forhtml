@@ -47,7 +47,7 @@ foreach ($urlaubsziele as $ziel) {
         ->text($fragment->parse('/uk3/card.php'))
         ->addClass('wrapper uk-background-secondary');
 }
-
+// Sind Cards da?
 if (count($cards >= 1)) {
     // Tag hinzufügen mittels FORHtml
     $output_cards = FORHtml::createElement('div')
