@@ -27,13 +27,13 @@ foreach ($urlaubsziele as $ziel) {
     $fragment->setVar('help', false);
     $medium = '';
     if (count($media) >= 1) {
-        // Erstelle Medium mit FORHtml
+        // Erstelle Medium mit FORHtml mmfile holt ein mediamanager bild
         $medium = FORHtml::createElement('img')
              ->addClass('uk-width-1-1')
              ->set('alt', 'Bild zum' . $ziel->title)
              ->set('title', 'Bild zum' . $ziel->title)
              ->set('uk-tooltip ', '')
-             ->set('src', rex_media_manager::getUrl('card_image', $media[0]));
+             ->mmfile('card_image', $media[0]); 
         $fragment->setVar('media', $medium, false);
         $fragment->setVar('media_bottom', true, false);
         $medium = '';
