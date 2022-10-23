@@ -36,6 +36,7 @@ if (isset($this->media) && $this->media != '') {
 $main_attributes = [];
 $main_attributes['class'] = 'uk-card';
 if (isset($this->main_attributes) && is_array($this->main_attributes)) {
+    $attributes = $this->main_attributes;
     if (array_key_exists('class', $this->main_attributes)) {
         $class = $this->main_attributes['class'];
         $main_attributes['class'] = 'uk-card ' . $class;
@@ -46,6 +47,7 @@ $attributes_main = rex_string::buildAttributes($main_attributes);
 $body_attributes = [];
 $body_attributes['class'] = 'uk-card-body';
 if (isset($this->body_attributes) && is_array($this->body_attributes)) {
+    $attributes = $this->body_attributes;
     if (array_key_exists('class', $this->body_attributes)) {
         $class = $this->body_attributes['class'];
         $body_attributes['class'] = 'uk-card-body ' . $class;
