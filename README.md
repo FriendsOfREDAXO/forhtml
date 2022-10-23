@@ -49,7 +49,9 @@ foreach ($urlaubsziele as $ziel) {
 
 if (count($cards >= 1)) {
     // Tag hinzufügen mittels FORHtml
-    $output_cards = FORHtml::createElement('div')->text(implode($cards))->addClass('uk-child-width-1-3@m uk-grid-match')
+    $output_cards = FORHtml::createElement('div')
+        ->text(implode($cards))
+        ->addClass('uk-child-width-1-3@m uk-grid-match')
         ->set('uk-grid', '');
 
     // Übergabe an Container
