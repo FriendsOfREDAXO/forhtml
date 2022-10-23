@@ -58,7 +58,6 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
 
 ?>
 
-<div>
     <div<?= $attributes_main ?>>
         <?= $media ?>
         <?php if (isset($this->title) && $this->title != '') : ?>
@@ -84,4 +83,3 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
         <?php endif; ?>
         <?= $media_bottom ?>
     </div>
-</div>
