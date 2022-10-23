@@ -54,10 +54,7 @@ if (isset($this->body_attributes) && is_array($this->body_attributes)) {
     }
 }
 $attributes_body = rex_string::buildAttributes($body_attributes);
-
-
 ?>
-
     <div<?= $attributes_main ?>>
         <?= $media ?>
         <?php if (isset($this->title) && $this->title != '') : ?>
