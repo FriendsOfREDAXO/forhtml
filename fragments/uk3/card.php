@@ -38,17 +38,17 @@ $main_attributes['class'] = 'uk-card';
 if (isset($this->main_attributes) && is_array($this->main_attributes)) {
     if (array_key_exists('class', $this->main_attributes)) {
         $class = $this->main_attributes['class'];
-        $attributes['class'] = 'uk-card ' . $class;
+        $main_attributes['class'] = 'uk-card ' . $class;
     }
 }
 $attributes_main = rex_string::buildAttributes($main_attributes);
-// default body is allways uk-body
+// default body is allways uk-card-body
 $body_attributes = [];
 $body_attributes['class'] = 'uk-card-body';
 if (isset($this->body_attributes) && is_array($this->body_attributes)) {
     if (array_key_exists('class', $this->body_attributes)) {
         $class = $this->body_attributes['class'];
-        $attributes['class'] = 'uk-card ' . $class;
+        $body_attributes['class'] = 'uk-card-body ' . $class;
     }
 }
 $attributes_body = rex_string::buildAttributes($body_attributes);
