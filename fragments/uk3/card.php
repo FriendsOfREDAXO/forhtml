@@ -12,7 +12,6 @@ $media_bottom  = false;
 if (isset($this->help) && $this->help === true) {
     $help = [];
     $help['info']         = 'Das Fragment ezeugt UiKit-Cards: https://getuikit.com/assets/uikit/tests/card.html';
-    $help['wrap']         = 'Wenn gesetzt wird ein Wrapper-Div um die Card gelegt und optional css classes angenommen (String)';
     $help['media']        = 'Nimmt Markup für ein Medium / uk-media an (String)';
     $help['media_bottom'] = 'Definiert ob das Medium am Ende dargestellt werden soll (bool)';
     $help['title']        = 'Titel bzw. Header (String)';
@@ -55,13 +54,7 @@ if (isset($this->body_attributes) && is_array($this->body_attributes)) {
     }
 }
 $attributes_body = rex_string::buildAttributes($body_attributes);
-?>
-<?php if (isset($this->wrap) && $this->wrap != '') : ?>
-<div class="<?= $this->wrap ?>">
-<?php endif; ?>    
-<?php if (isset($this->wrap) && $this->wrap == '') : ?>
-<div>
-<?php endif; ?>     
+?>     
     <div<?= $attributes_main ?>>
         <?= $media ?>
         <?php if (isset($this->title) && $this->title != '') : ?>
@@ -87,6 +80,3 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
         <?php endif; ?>
         <?= $media_bottom ?>
     </div>
-<?php if (isset($this->wrap)) : ?>
-</div>
-<?php endif; ?>   
