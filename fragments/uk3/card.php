@@ -57,23 +57,23 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
 ?>     
     <div<?= $attributes_main ?>>
         <?= $media ?>
-        <?php if (isset($this->title) && $this->title != '') : ?>
+        <?php if (isset($this->title) && is_string($this->title) && $this->title != '') : ?>
             <div class="uk-card-header">
                 <h3 class="uk-card-title"><?= $this->title ?></h3>
             </div>
         <?php endif; ?>
-       <?php if (isset($this->body_prepend) && $this->body_prepend != '') : ?>
+       <?php if (isset($this->body_prepend) && is_string($this->body_prepend) && $this->body_prepend != '') : ?>
        <?= $this->body_prepend ?>
        <?php endif; ?> 
         <div<?= $attributes_body ?>>   
-            <?php if (isset($this->body) && $this->body != '') : ?>
+            <?php if (isset($this->body) && is_string($this->body) && $this->body != '') : ?>
                 <?= $this->body ?>
             <?php endif; ?>
         </div>
-        <?php if (isset($this->body_append) && $this->body_append != '') : ?>
+        <?php if (isset($this->body_append) && is_string($this->body_append) && $this->body_append != '') : ?>
         <?= $this->body_append ?>
         <?php endif; ?> 
-        <?php if (isset($this->footer) && $this->footer != '') : ?>
+        <?php if (isset($this->footer) && is_string($this->footer) && $this->footer != '') : ?>
             <div class="uk-card-footer">
                 <?= $this->footer ?>
             </div>
