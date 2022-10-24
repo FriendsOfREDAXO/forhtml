@@ -20,7 +20,7 @@ if (isset($this->attributes) && is_array($this->attributes)) {
 $attributes_out = rex_string::buildAttributes($attributes);
 ?>
 <container<?= $attributes_out?>>
-<?php if (isset($this->body) && $this->body != '') : ?>
+<?php if (isset($this->body) && $this->body !== '') : ?>
 <?= $this->body ?>
 <?php endif; ?>
 </container>
