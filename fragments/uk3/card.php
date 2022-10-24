@@ -62,7 +62,7 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
                 <h3 class="uk-card-title"><?= $this->title ?></h3>
             </div>
         <?php endif; ?>
-       <?php if (isset($this->body_prepend) && is_string($this->body_prepend) && $this->body_prepend != '') : ?>
+       <?php if (isset($this->body_prepend) && is_string($this->body_prepend) && $this->body_prepend !== '') : ?>
        <?= $this->body_prepend ?>
        <?php endif; ?> 
         <div<?= $attributes_body ?>>   
@@ -70,7 +70,7 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
                 <?= $this->body ?>
             <?php endif; ?>
         </div>
-        <?php if (isset($this->body_append) && is_string($this->body_append) && $this->body_append != '') : ?>
+        <?php if (isset($this->body_append) && is_string($this->body_append) && $this->body_append !== '') : ?>
         <?= $this->body_append ?>
         <?php endif; ?> 
         <?php if (isset($this->footer) && is_string($this->footer) && $this->footer !== '') : ?>
