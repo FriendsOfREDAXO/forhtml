@@ -1,5 +1,6 @@
-# fe_fragments 
-Fragmentsammlung für das Frontend in REDAXO
+# FORHtml 
+
+PHP-HTML-Generator und Fragmentsammlung für REDAXO cms
 
 Einfache Fragmente zum sofortigen Einsatz. 
 
@@ -8,6 +9,22 @@ Geplant:
 - Fragmente für UiKit
 - Fragmente für Bootstrap
 - Fragmente für Tailwind
+
+
+## Beispiel HTML erstellen
+
+```php
+$medium = FORHtml::createElement('div')
+          ->addClass('border big')
+             ->addElement('img')
+                ->addClass('uk-width-1-1')
+                 ->set('alt', 'Bild zum' . $ziel->title)
+                 ->set('title', 'Bild zum' . $ziel->title)
+                 ->set('uk-tooltip ', '')
+                 ->mmfile('mediamanager_type', 'image.jpg'); 
+echo $medium; 
+```
+
 
 ## Beispiel Uikit-Cards in Section und Container aus YForm
 
