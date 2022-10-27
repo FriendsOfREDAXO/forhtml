@@ -13,38 +13,6 @@ class FORHtml extends HtmlTag
    {
      return $this->text($body);
    }
-  
-   
-    /**
-     * The auto closed tags list (or void elements.)
-     *
-     * @var array
-     */
-    protected $autocloseTagsList = array(
-        'area',
-        'base',
-        'basefont',
-        'bgsound',
-        'br',
-        'col',
-        'command',
-        'embed',
-        'frame',
-        'hr',
-        'image',
-        'img',
-        'input',
-        'isindex',
-        'keygen',
-        'link',
-        'menuitem',
-        'meta',
-        'nextid',
-        'param',
-        'source',
-        'track',
-        'wbr'
-    );   
    
    
 }
