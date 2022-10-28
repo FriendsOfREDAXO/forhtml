@@ -28,7 +28,7 @@ if (isset($this->type)){
 /** @var array<int, array<string, string>> $values */
 foreach ($values as $value) : ?>
                 <div>
-                    <?php if (isset($value['title']) && is_string($value['title']) && $value['title'] !== '') : ?>
+                    <?php  /** @api */ if (isset($value['title']) && is_string($value['title']) && $value['title'] !== '') : ?>
                     <a href="#" tabindex="0" class="uk-accordion-title uk-background-muted uk-padding-small"><?= $value['title'] ?></a>
                      <?php endif; ?>
                     <div class="uk-accordion-content">
