@@ -12,7 +12,7 @@ if (isset($this->help) && $this->help === true) {
     $help['items'] = 'Array mit den Keys title und body';
     dump($help);
 }
-
+$value[];
 $values = [];
 if (isset($this->items) && is_array($this->items)){
     $values = array_filter($this->items);
