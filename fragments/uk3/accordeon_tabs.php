@@ -27,9 +27,9 @@ if (isset($this->type)){
         <div uk-accordion>
             <?php foreach ($values as $i=>$value) : ?>
                 <div>
-                    <a href="#" tabindex="0" class="uk-accordion-title uk-background-muted uk-padding-small"><?= $value['titel'] ?></a>
+                    <a href="#" tabindex="0" class="uk-accordion-title uk-background-muted uk-padding-small"><?= $value['title'] ?></a>
                     <div class="uk-accordion-content">
-                        <p><?= $value['text'] ?></p>
+                        <p><?= $value['body'] ?></p>
                     </div>
                 </div>
             <?php endforeach ?>
@@ -38,12 +38,12 @@ if (isset($this->type)){
         <div class="uk-margin-medium-top">
             <div class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade">
             <?php foreach ($values as $value) : ?>
-               <div><a tabindex="0" href="#"><?= $value['titel'] ?></a></div>
+               <div><a tabindex="0" href="#"><?= $value['title'] ?></a></div>
             <?php endforeach ?>
             </div>
             <div class="uk-switcher uk-margin">
             <?php foreach ($values as $value) : ?>
-                <div><?= $value['text'] ?></div>
+                <div><?= $value['body'] ?></div>
             <?php endforeach ?>
             </div>
         </div>
