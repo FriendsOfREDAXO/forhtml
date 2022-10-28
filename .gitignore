@@ -3,3 +3,4 @@ vendor/autoload.php
 vendor/composer/*
 vendor/airmanbzh/php-html-generator/tests/*
 vendor/airmanbzh/php-html-generator/phpunit.xml
+.DS_Store

@@ -1,10 +1,8 @@
 <?php
-
 /**
  * @var rex_fragment $this
  * @psalm-scope-this rex_fragment
  */
-
 
 if (isset($this->help) && $this->help === true) {
     $help = [];
