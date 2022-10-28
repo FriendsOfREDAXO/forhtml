@@ -1,19 +1,17 @@
 <?php
 if (isset($this->help) && $this->help === true) {
     $help = [];
-    $help['info']     = 'Nimmt ein Array an und erstellt eine Tab oder Akkordeon Liste';
-    $help['type']   = 'Bei 1 > Akkordeon, bei 2 Tabs';
-    $help['items']  = 'Array mit den Keys title und body';
+    $help['info']  = 'Nimmt ein Array an und erstellt eine Tab oder Akkordeon Liste';
+    $help['type']  = 'Bei 1 > Akkordeon, bei 2 Tabs';
+    $help['items'] = 'Array mit den Keys title und body';
     dump($help);
 }
-if (isset($this->items && is_array($this->items))
-{
-$values = $this->items;
+if (isset($this->items) && is_array($this->items)){
+    $values = $this->items;
 }
 $type = 1;
-if (isset($this->type)
-{
-$type = $this->type;
+if (isset($this->type){
+    $type = $this->type;
 }
 ?>
 <div class="uk-container uk-container-small">
