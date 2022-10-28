@@ -16,8 +16,8 @@ if (isset($this->type)
 $type = $this->type;
 }
 ?>
+<div class="uk-container uk-container-small">
 <?php if ($type == 1) : ?>
-    <div class="uk-container uk-container-small">
         <div uk-accordion>
             <?php foreach ($values as $i=>$value) : ?>
                 <div>
@@ -28,9 +28,7 @@ $type = $this->type;
                 </div>
             <?php endforeach ?>
         </div>
-    </div>
 <?php elseif ($type == 2) : ?>
-    <div class="uk-container uk-container-small">
         <div class="uk-margin-medium-top">
             <div class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade">
             <?php foreach ($values as $value) : ?>
@@ -43,5 +41,5 @@ $type = $this->type;
             <?php endforeach ?>
             </div>
         </div>
-    </div>
 <?php endif ?>
+<div class="uk-container uk-container-small">
