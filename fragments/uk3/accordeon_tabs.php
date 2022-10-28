@@ -25,7 +25,7 @@ if (isset($this->type)){
 <div class="uk-container uk-container-small">
 <?php if ($type === 1) : ?>
         <div uk-accordion>
-            <?php foreach ($values as $i=>$value) : ?>
+            <?php foreach ($values as $value) : ?>
                 <div>
                     <?php if (isset($value['title']) && is_string($value['title']) && $value['title'] !== '') : ?>
                     <a href="#" tabindex="0" class="uk-accordion-title uk-background-muted uk-padding-small"><?= $value['title'] ?></a>
