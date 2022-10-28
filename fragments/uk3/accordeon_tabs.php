@@ -12,7 +12,6 @@ if (isset($this->help) && $this->help === true) {
     $help['items'] = 'Array mit den Keys title und body';
     dump($help);
 }
-$value = [];
 $values = [];
 if (isset($this->items) && is_array($this->items)){
     $values = array_filter($this->items);
@@ -25,7 +24,9 @@ if (isset($this->type)){
 <div class="uk-container uk-container-small">
 <?php if ($type === 1) : ?>
         <div uk-accordion>
-            <?php foreach ($values as $value) : ?>
+            <?php 
+/** @var array<string, string> $values */
+foreach ($values as $value) : ?>
                 <div>
                     <?php if (isset($value['title']) && is_string($value['title']) && $value['title'] !== '') : ?>
                     <a href="#" tabindex="0" class="uk-accordion-title uk-background-muted uk-padding-small"><?= $value['title'] ?></a>
@@ -41,14 +42,18 @@ if (isset($this->type)){
 <?php elseif ($type === 2) : ?>
         <div class="uk-margin-medium-top">
             <div class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade">
-            <?php foreach ($values as $value) : ?>
+            <?php 
+/** @var array<string, string> $values */
+foreach ($values as $value) : ?>
               <?php if (isset($value['title']) && is_string($value['title']) && $value['title'] !== '') : ?>
                <div><a tabindex="0" href="#"><?= $value['title'] ?></a></div>
               <?php endif; ?>  
             <?php endforeach ?>
             </div>
             <div class="uk-switcher uk-margin">
-            <?php foreach ($values as $value) : ?>
+            <?php 
+/** @var array<string, string> $values */
+foreach ($values as $value) : ?>
                 <?php if (isset($value['body']) && is_string(value['body']) && $value['body'] !== '') : ?>
                 <div><?= $value['body'] ?></div>
                  <?php endif; ?>
