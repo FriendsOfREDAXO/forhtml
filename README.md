@@ -29,7 +29,6 @@ echo $medium;
 ## Beispiel Uikit-Cards in Section und Container aus YForm
 
 ```php
-<?php
 $table_urlaubsziele = rex_yform_manager_table::get('rex_urlaubsziele');
 $query = $table_urlaubsziele->query();
 $urlaubsziele = $query->find();
@@ -43,7 +42,7 @@ foreach ($urlaubsziele as $ziel) {
     $fragment = new rex_fragment();
     $fragment->setVar('help', false);
     $medium = '';
-    if (count($media) >= 1) {
+    if ($media) {
         // Erstelle Medium mit FORHtml mmfile holt ein mediamanager bild
         $medium = FORHtml::createElement('img')
              ->addClass('uk-width-1-1')
@@ -65,31 +64,22 @@ foreach ($urlaubsziele as $ziel) {
         ->addClass('wrapper uk-background-secondary');
 }
 // Sind Cards da?
-if (count($cards >= 1)) {
+if ($cards) {
     // Tag hinzufügen mittels FORHtml
-    $output_cards = FORHtml::createElement('div')
-        ->text(implode($cards))
-        ->addClass('uk-child-width-1-3@m uk-grid-match')
-        ->set('uk-grid', '');
 
-    // Übergabe an Container
-    $container = '';
-    $fragment = new rex_fragment();
-    $attributes = [];
-    $attributes = ['class' => 'uk-container-large '];
-    $fragment->setVar('attributes', $attributes, true);
-    $fragment->setVar('body', $output_cards, false);
-    $container = $fragment->parse('/uk3/container.php');
-
-    // Sektion erstellen
-    $section = '';
-    $fragment = new rex_fragment();
-    $attributes = [];
-    $attributes = ['class' => 'uk-preserve-color uk-padding-large'];
-    $fragment->setVar('attributes', $attributes, true);
-    $fragment->setVar('body', $container, false);
-    $section = $fragment->parse('/uk3/section.php');
-    echo $section;
+$output_cards = FORHtml::createElement('div')
+    ->text(implode($cards))
+    ->addClass('uk-child-width-1-3@m uk-grid-match')
+    ->set('uk-grid', '');
+   
+    
+$output = FORHtml::createElement('div')
+    ->addClass('uk-section uk-preserve-color uk-padding-large')
+    ->body($output_cards)
+        ->addElement('div')
+        ->addClass('uk-container uk-container-large')
+        ->body($output_cards);
+echo $output;    
 }
 
 ```
