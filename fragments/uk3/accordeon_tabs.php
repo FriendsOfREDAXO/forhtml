@@ -10,7 +10,7 @@ if (isset($this->items) && is_array($this->items)){
     $values = $this->items;
 }
 $type = 1;
-if (isset($this->type){
+if (isset($this->type)){
     $type = $this->type;
 }
 ?>
