@@ -15,9 +15,6 @@ if (isset($this->help) && $this->help === true) {
 }
 $values = [];
 
-dump($this->items);
-
-
 if (isset($this->items) && is_array($this->items)) {
     $values = array_filter($this->items);
 }
