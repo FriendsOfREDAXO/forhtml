@@ -15,7 +15,7 @@ if (isset($this->help) && $this->help === true) {
 
 $values = [];
 if (isset($this->items) && is_array($this->items)){
-    $values = $this->items;
+    $values = array_filter($this->items);
 }
 $type = 1;
 if (isset($this->type)){
@@ -27,9 +27,13 @@ if (isset($this->type)){
         <div uk-accordion>
             <?php foreach ($values as $i=>$value) : ?>
                 <div>
+                    <?php if (isset($this->title) && is_string($this->title) && $this->title !== '') : ?>
                     <a href="#" tabindex="0" class="uk-accordion-title uk-background-muted uk-padding-small"><?= $value['title'] ?></a>
+                     <?php endif; ?>
                     <div class="uk-accordion-content">
+                        <?php if (isset($this->body) && is_string($this->body) && $this->body !== '') : ?>
                         <p><?= $value['body'] ?></p>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endforeach ?>
@@ -38,12 +42,16 @@ if (isset($this->type)){
         <div class="uk-margin-medium-top">
             <div class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade">
             <?php foreach ($values as $value) : ?>
+              <?php if (isset($this->title) && is_string($this->title) && $this->title !== '') : ?>
                <div><a tabindex="0" href="#"><?= $value['title'] ?></a></div>
+              <?php endif; ?>  
             <?php endforeach ?>
             </div>
             <div class="uk-switcher uk-margin">
             <?php foreach ($values as $value) : ?>
+                <?php if (isset($this->body) && is_string($this->body) && $this->body !== '') : ?>
                 <div><?= $value['body'] ?></div>
+                 <?php endif; ?>
             <?php endforeach ?>
             </div>
         </div>
