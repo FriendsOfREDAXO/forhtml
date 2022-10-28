@@ -8,7 +8,7 @@ class FORHtml extends HtmlTag
    {
      return $this->set('src', rex_media_manager::getUrl($type, $file));
    } 
-
+   /** @api */
    public function body(string $body =''):string
    {
      return $this->text($body);
