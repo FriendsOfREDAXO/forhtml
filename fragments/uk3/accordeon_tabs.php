@@ -1,4 +1,10 @@
 <?php
+/**
+ * @var rex_fragment $this
+ * @psalm-scope-this rex_fragment
+ */
+
+
 if (isset($this->help) && $this->help === true) {
     $help = [];
     $help['info']  = 'Nimmt ein Array an und erstellt eine Tab oder Akkordeon Liste';
@@ -28,7 +34,7 @@ if (isset($this->type)){
                 </div>
             <?php endforeach ?>
         </div>
-<?php elseif ($type == 2) : ?>
+<?php elseif ($type === 2) : ?>
         <div class="uk-margin-medium-top">
             <div class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade">
             <?php foreach ($values as $value) : ?>
