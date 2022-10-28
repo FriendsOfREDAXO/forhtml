@@ -6,8 +6,9 @@ if (isset($this->help) && $this->help === true) {
     $help['items'] = 'Array mit den Keys title und body';
     dump($help);
 }
+
+$values = [];
 if (isset($this->items) && is_array($this->items)){
-    $values = [];
     $values = $this->items;
 }
 $type = 1;
