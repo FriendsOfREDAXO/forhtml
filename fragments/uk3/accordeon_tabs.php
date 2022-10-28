@@ -42,4 +42,4 @@ $type = $this->type;
             </div>
         </div>
 <?php endif ?>
-<div class="uk-container uk-container-small">
+</div>
