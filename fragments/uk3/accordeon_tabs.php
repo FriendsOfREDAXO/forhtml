@@ -25,7 +25,7 @@ if (isset($this->type)){
 <?php if ($type === 1) : ?>
         <div uk-accordion>
             <?php 
-/** @var array<string, string> $values */
+/** @var array<int, array<string, string>> $values */
 foreach ($values as $value) : ?>
                 <div>
                     <?php if (isset($value['title']) && is_string($value['title']) && $value['title'] !== '') : ?>
@@ -43,7 +43,7 @@ foreach ($values as $value) : ?>
         <div class="uk-margin-medium-top">
             <div class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade">
             <?php 
-/** @var array<string, string> $values */
+/** @var array<int, array<string, string>> $values */
 foreach ($values as $value) : ?>
               <?php if (isset($value['title']) && is_string($value['title']) && $value['title'] !== '') : ?>
                <div><a tabindex="0" href="#"><?= $value['title'] ?></a></div>
@@ -52,7 +52,7 @@ foreach ($values as $value) : ?>
             </div>
             <div class="uk-switcher uk-margin">
             <?php 
-/** @var array<string, string> $values */
+/** @var array<int, array<string, string>> $values */
 foreach ($values as $value) : ?>
                 <?php if (isset($value['body']) && is_string(value['body']) && $value['body'] !== '') : ?>
                 <div><?= $value['body'] ?></div>
