@@ -7,6 +7,7 @@ if (isset($this->help) && $this->help === true) {
     dump($help);
 }
 if (isset($this->items) && is_array($this->items)){
+    $values = [];
     $values = $this->items;
 }
 $type = 1;
@@ -15,7 +16,7 @@ if (isset($this->type)){
 }
 ?>
 <div class="uk-container uk-container-small">
-<?php if ($type == 1) : ?>
+<?php if ($type === 1) : ?>
         <div uk-accordion>
             <?php foreach ($values as $i=>$value) : ?>
                 <div>
