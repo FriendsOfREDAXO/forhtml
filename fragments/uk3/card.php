@@ -32,6 +32,15 @@ if (isset($this->media) && $this->media !== '') {
         $media_bottom  = '<div class="uk-card-media-bottom">' . $this->media . '</div>';
     }
 }
+
+// main check if footer isset
+if (isset($this->footer) && $this->footer !== '') {
+    $footer  = $this->footer ;
+    }
+}
+
+
+
 // default is allways uk-card
 $main_attributes = [];
 $main_attributes['class'] = 'uk-card';
