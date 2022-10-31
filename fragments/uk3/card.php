@@ -55,7 +55,7 @@ if (isset($this->main_attributes) && is_array($this->main_attributes)) {
 $attributes_main = rex_string::buildAttributes($main_attributes);
 // default body is allways uk-card-body
 $body_attributes = [];
-$body_attributes['class'] = 'uk-card-body stretch-body';
+$body_attributes['class'] = 'uk-card-body stretch_body';
 if (isset($this->body_attributes) && is_array($this->body_attributes)) {
     $attributes = $this->body_attributes;
     if (array_key_exists('class', $this->body_attributes)) {
