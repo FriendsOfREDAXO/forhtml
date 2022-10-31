@@ -6,7 +6,8 @@
  */
 
 // Deklaration der Variablen
-$media = $attributes_main = $attributes_body = '';
+$footer = $media = '';
+$attributes_main = $attributes_body = [];
 $media_bottom  = false;
 
 if (isset($this->help) && $this->help === true) {
@@ -35,9 +36,9 @@ if (isset($this->media) && $this->media !== '') {
 
 // main check if footer isset
 if (isset($this->footer) && $this->footer !== '') {
-    $footer  = $this->footer ;
+    $footer  = '<div class="uk-card-footer">'.$this->footer.'</div>';
     }
-}
+
 
 
 
@@ -82,10 +83,6 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
         <?php if (isset($this->body_append) && is_string($this->body_append) && $this->body_append !== '') : ?>
         <?= $this->body_append ?>
         <?php endif; ?> 
-        <?php if (isset($this->footer) && is_string($this->footer) && $this->footer !== '') : ?>
-            <div class="uk-card-footer">
-                <?= $this->footer ?>
-            </div>
-        <?php endif; ?>
+                <?= $footer ?>
         <?= $media_bottom ?>
     </div>
