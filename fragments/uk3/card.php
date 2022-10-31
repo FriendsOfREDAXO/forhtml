@@ -66,6 +66,7 @@ if (isset($this->body_attributes) && is_array($this->body_attributes)) {
 $attributes_body = rex_string::buildAttributes($body_attributes);
 ?>     
     <div<?= $attributes_main ?>>
+     <div class="uk-card-wrapper">
         <?= $media ?>
         <?php if (isset($this->title) && is_string($this->title) && $this->title !== '') : ?>
             <div class="uk-card-header">
@@ -85,4 +86,5 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
         <?php endif; ?> 
                 <?= $footer ?>
         <?= $media_bottom ?>
+        </div>
     </div>
