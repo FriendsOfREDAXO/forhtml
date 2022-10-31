@@ -75,7 +75,6 @@ $output_cards = FORHtml::createElement('div')
     
 $output = FORHtml::createElement('div')
     ->addClass('uk-section uk-preserve-color uk-padding-large')
-    ->body($output_cards)
         ->addElement('div')
         ->addClass('uk-container uk-container-large')
         ->body($output_cards);
