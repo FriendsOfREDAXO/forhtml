@@ -36,7 +36,7 @@ if (isset($this->media) && $this->media !== '') {
 
 // main check if footer isset
 if (isset($this->footer) && $this->footer !== '') {
-    $footer  = '<div class="uk-card-footer strech_footer">'.$this->footer.'</div>';
+    $footer  = '<div class="uk-card-footer stretch_footer">'.$this->footer.'</div>';
     }
 
 
