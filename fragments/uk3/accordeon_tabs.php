@@ -31,10 +31,16 @@ if (isset($this->type)) {
                 <?php if ($value['titel'] !== '') : ?>
                     <a href="#" tabindex="0" class="uk-accordion-title uk-background-muted uk-padding-small"><?= $value['titel'] ?></a>
                 <?php endif; ?>
-                <div class="uk-accordion-content">
+                <div class="uk-accordion-content uk-background-muted uk-margin-remove uk-padding-small">
                     <?php if ($value['text'] !== '') : ?>
                         <p><?= $value['text'] ?></p>
                     <?php endif; ?>
+                    
+                    <?php if($value['media']!='') {
+                    $fragment = new rex_fragment();
+                    $fragment->setVar('media', $value['media'], false);
+                    echo $fragment->parse('/uk3/gallery.php');
+                    }?>
                 </div>
             </div>
         <?php endforeach ?>
