@@ -28,6 +28,7 @@ if (isset($this->help) && $this->help === true) {
 // main check if media and position are set
 if (isset($this->media) && $this->media !== '') {
     $media  = '<div class="uk-card-media-top">' . $this->media . '</div>';
+    
     if (isset($this->media_bottom) && $this->media_bottom === true) {
         $media = '';
         $media_bottom  = '<div class="uk-card-media-bottom">' . $this->media . '</div>';
@@ -44,12 +45,12 @@ if (isset($this->footer) && $this->footer !== '') {
 
 // default is allways uk-card
 $main_attributes = [];
-$main_attributes['class'] = 'uk-card';
+$main_attributes['class'] = 'uk-cover-container uk-card';
 if (isset($this->main_attributes) && is_array($this->main_attributes)) {
     $attributes = $this->main_attributes;
     if (array_key_exists('class', $this->main_attributes)) {
         $class = $this->main_attributes['class'];
-        $main_attributes['class'] = 'uk-card ' . $class;
+        $main_attributes['class'] = 'uk-cover-container uk-card ' . $class;
     }
 }
 $attributes_main = rex_string::buildAttributes($main_attributes);
@@ -76,11 +77,11 @@ $attributes_body = rex_string::buildAttributes($body_attributes);
        <?php if (isset($this->body_prepend) && is_string($this->body_prepend) && $this->body_prepend !== '') : ?>
        <?= $this->body_prepend ?>
        <?php endif; ?> 
+         <?php if (isset($this->body) && is_string($this->body) && $this->body !== '') : ?>
         <div<?= $attributes_body ?>>   
-            <?php if (isset($this->body) && is_string($this->body) && $this->body !== '') : ?>
                 <?= $this->body ?>
-            <?php endif; ?>
         </div>
+         <?php endif; ?>
         <?php if (isset($this->body_append) && is_string($this->body_append) && $this->body_append !== '') : ?>
         <?= $this->body_append ?>
         <?php endif; ?> 
