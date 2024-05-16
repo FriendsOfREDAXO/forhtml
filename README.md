@@ -20,7 +20,7 @@ $medium = FORHtml::createElement('div')
                 ->addClass('uk-width-1-1')
                  ->set('alt', 'Bild zum' . $ziel->title)
                  ->set('title', 'Bild zum' . $ziel->title)
-                 ->set('uk-tooltip ', '')
+                 ->set('uk-tooltip', '')
                  ->mmfile('mediamanager_type', 'image.jpg'); 
 echo $medium; 
 ```
