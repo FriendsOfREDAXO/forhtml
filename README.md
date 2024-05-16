@@ -1,4 +1,4 @@
-# ForHtml
+# FORHtml
 
 PHP-HTML-Generator und Fragmentsammlung für REDAXO cms
 
