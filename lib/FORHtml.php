@@ -1,5 +1,4 @@
 <?php
-namespace FriendsOfRedaxo\HtmlGenerator;
 
 use rex_media_manager;
 
