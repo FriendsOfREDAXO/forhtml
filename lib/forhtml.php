@@ -1,7 +1,7 @@
 <?php
 namespace FriendsOfRedaxo\HtmlGenerator;
 
-use ForHtmlGenerator\HtmlTag;
+use HtmlGenerator\HtmlTag;
 use rex_media_manager;
 
 class FORHtml extends HtmlTag
