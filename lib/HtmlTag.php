@@ -1,6 +1,6 @@
 <?php
 
-namespace ForHtmlGenerator;
+namespace FriendsOfRedaxo\HtmlGenerator;
 
 if (!defined('ENT_HTML5')) {
     define('ENT_HTML5', 48);
