@@ -1,9 +1,9 @@
 package: forhtml
-version: '1.0.0-dev'
+version: '1.0.0-beta1'
 author: 'Friends Of REDAXO'
 supportpage: https://github.com/FriendsOfREDAXO/forhtml
 
 requires:
     redaxo: '^5.14' 
     php:
-        version: '>=7.4'
+        version: '>=8.1'
