@@ -1,4 +1,5 @@
 <?php
+namespace FriendsOfRedaxo\HtmlGenerator;
 use ForHtmlGenerator\HtmlTag;
 use rex_media_manager;
 
