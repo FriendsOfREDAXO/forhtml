@@ -1,5 +1,6 @@
 <?php
 use ForHtmlGenerator\HtmlTag;
+use rex_media_manager;
 
 class FORHtml extends HtmlTag
 {
