@@ -86,6 +86,7 @@ echo $output;
 
 Create HTML tags and render them efficiently.
 
+by: [https://github.com/Airmanbzh/](https://github.com/Airmanbzh)
 
 ## Overview
 
