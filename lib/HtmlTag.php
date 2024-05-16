@@ -14,9 +14,9 @@ class HtmlTag extends Markup
     public static int $outputLanguage = ENT_HTML5;
 
     protected array $autocloseTagsList = [
-        'img', 'br', 'hr', 'input', 'area', 'link', 'meta', 'param', 'base', 'col', 'command', 'keygen', 'source'
+    'img', 'br', 'hr', 'input', 'area', 'link', 'meta', 'param', 'base', 'col', 'command', 'keygen', 'source', 'track', 'wbr'
     ];
-
+    
     /**
      * Shortcut to set('id', $value)
      * @param string $value
