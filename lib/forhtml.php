@@ -1,5 +1,5 @@
 <?php
-use HtmlGenerator\HtmlTag;
+use ForHtmlGenerator\HtmlTag;
 
 class FORHtml extends HtmlTag
 {
