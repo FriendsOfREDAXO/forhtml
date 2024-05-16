@@ -1,5 +1,5 @@
 <?php
-
+use FriendsOfRedaxo\HtmlGenerator\HtmlTag; 
 use rex_media_manager;
 
 class FORHtml extends HtmlTag
@@ -14,6 +14,5 @@ class FORHtml extends HtmlTag
    {
      return $this->text($content);
    }
-   
    
 }
