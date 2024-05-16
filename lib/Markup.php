@@ -1,6 +1,6 @@
 <?php
 
-namespace ForHtmlGenerator;
+namespace FriendsOfRedaxo\HtmlGenerator;
 
 
 if (!defined('ENT_XML1')) {
