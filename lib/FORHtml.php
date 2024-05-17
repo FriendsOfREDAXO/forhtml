@@ -2,7 +2,7 @@
 use FriendsOfRedaxo\HtmlGenerator\HtmlTag; 
 use rex_media_manager;
 
-class FORHtml extends HtmlTag
+class FORHtml extends Markup
 {
    /** @api */
    public function mmfile(string $type = 'default', string $file =''):string
