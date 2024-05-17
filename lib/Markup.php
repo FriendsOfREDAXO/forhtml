@@ -2,10 +2,14 @@
 
 namespace FriendsOfRedaxo\HtmlGenerator;
 
+if (!defined('ENT_HTML5')) {
+    define('ENT_HTML5', 48);
+}
+
 class Markup implements \ArrayAccess
 {
     public static bool $avoidXSS = false;
-    public static int $outputLanguage = ENT_XML1;
+    public static int $outputLanguage = ENT_HTML5; // Changed to ENT_HTML5
     protected static ?Markup $instance = null;
     protected ?Markup $top = null;
     protected ?Markup $parent = null;
@@ -206,5 +210,43 @@ class Markup implements \ArrayAccess
     public static function unXSS(string $input): string
     {
         return htmlentities($input, ENT_QUOTES | ENT_DISALLOWED | static::$outputLanguage);
+    }
+
+    // Methods from HtmlTag
+    /**
+     * Shortcut to set('id', $value)
+     * @param string $value
+     * @return Markup
+     */
+    public function id(string $value): Markup
+    {
+        return $this->set('id', $value);
+    }
+
+    /**
+     * Add a class to classList
+     * @param string $value
+     * @return Markup
+     */
+    public function addClass(string $value): Markup
+    {
+        if (!isset($this->attributeList['class']) || is_null($this->attributeList['class'])) {
+            $this->attributeList['class'] = [];
+        }
+        $this->attributeList['class'][] = $value;
+        return $this;
+    }
+
+    /**
+     * Remove a class from classList
+     * @param string $value
+     * @return Markup
+     */
+    public function removeClass(string $value): Markup
+    {
+        if (!is_null($this->attributeList['class'])) {
+            unset($this->attributeList['class'][array_search($value, $this->attributeList['class'])]);
+        }
+        return $this;
     }
 }
