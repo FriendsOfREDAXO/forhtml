@@ -90,11 +90,11 @@ by: [https://github.com/Airmanbzh/](https://github.com/Airmanbzh)
 ## Overview
 
 ```php
-return HtmlTag::createElement();
+return FORHtml::createElement();
 // returns an empty HtmlTag Container
 ```
 ```php
-return HtmlTag::createElement('a');
+return FORHtml::createElement('a');
 // returns an HtmlTag containing a 'a' tag
 ```
 
@@ -107,11 +107,11 @@ return HtmlTag::createElement('a');
 ## Render tags
 
 ```php
-echo(HtmlTag::createElement('a'));
+echo(FORHtml::createElement('a'));
 ```
 or 
 ```php
-$tag = HtmlTag::createElement('a')
+$tag = FORHtml::createElement('a')
 echo( $tag );
 ```
 
@@ -119,14 +119,14 @@ echo( $tag );
 
 
 ```php
-echo HtmlTag::createElement('div');
+echo FORHtml::createElement('div');
 ```
 ```html
 <div></div>
 ```
 
 ```php
-echo(HtmlTag::createElement('p')->text('some content'));
+echo(FORHtml::createElement('p')->text('some content'));
 ```
 ```html
 <p>some content</p>
@@ -135,14 +135,14 @@ echo(HtmlTag::createElement('p')->text('some content'));
 ### Structured tags
 
 ```php
-echo(HtmlTag::createElement('div')->addElement('a')->text('a text'));
+echo(FORHtml::createElement('div')->addElement('a')->text('a text'));
 ```
 ```html
 <div><a>a text</a></div>
 ```
 
 ```php
-$container = HtmlTag::createElement('div');
+$container = FORHtml::createElement('div');
 $container->addElement('p')->text('a text');
 $container->addElement('a')->text('a link');
 ```
@@ -154,7 +154,7 @@ $container->addElement('a')->text('a link');
 #### Classics attributes (method : 'set')
 
 ```php
-$tag = HtmlTag::createElement('a')
+$tag = FORHtml::createElement('a')
     ->set('href','./sample.php')
     ->set('id','myID')
     ->text('my link');
@@ -167,7 +167,7 @@ echo( $tag );
 #### Shortcut to set an ID attribute (method : 'id')
 
 ```php
-$tag = HtmlTag::createElement('div')
+$tag = FORHtml::createElement('div')
     ->id('myID');
 echo( $tag );
 ```
@@ -178,7 +178,7 @@ echo( $tag );
 #### Class management (method : 'addClass'/'removeClass')
 
 ```php
-$tag = HtmlTag::createElement('div')
+$tag = FORHtml::createElement('div')
     ->addClass('oneClass')
     ->text('my content')
 echo( $tag );
@@ -188,7 +188,7 @@ echo( $tag );
 ```
 
 ```php
-$tag = HtmlTag::createElement('div')
+$tag = FORHtml::createElement('div')
     ->addClass('aClass')
     ->addClass('anothereClass')
     ->text('my content')
@@ -199,7 +199,7 @@ echo( $tag );
 ```
 
 ```php
-$tag = HtmlTag::createElement('div')
+$tag = FORHtml::createElement('div')
     ->addClass('firstClass')
     ->addClass('secondClass')
     ->text('my content')
@@ -214,7 +214,7 @@ echo( $tag );
 
 Text and content are generated according to the order of addition
 ```php
-$tag = HtmlTag::createElement('p')
+$tag = FORHtml::createElement('p')
     ->text('a text')
     ->addElement('a')
     ->text('a link');
@@ -225,7 +225,7 @@ $tag = HtmlTag::createElement('p')
 	
 To generate content before text, 2 solutions :
 ```php
-$tag = HtmlTag::createElement('p')
+$tag = FORHtml::createElement('p')
     ->addElement('a')
     ->text('a link')
     ->getParent()
@@ -233,7 +233,7 @@ $tag = HtmlTag::createElement('p')
 ```
 or
 ```php
-$tag = HtmlTag::createElement('p');
+$tag = FORHtml::createElement('p');
 $tag->addElement('a')->text('a link');
 $tag->text('a text');
 ```
