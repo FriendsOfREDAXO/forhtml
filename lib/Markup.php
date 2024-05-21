@@ -2,11 +2,13 @@
 
 namespace FriendsOfRedaxo\FORHtml;
 
+use rex_media_manager;
+
 if (!defined('ENT_HTML5')) {
     define('ENT_HTML5', 48);
 }
 
-class Markup implements \ArrayAccess
+class FORHtml implements \ArrayAccess
 {
     public static bool $avoidXSS = false;
     public static int $outputLanguage = ENT_HTML5; // Changed to ENT_HTML5
@@ -236,6 +238,17 @@ class Markup implements \ArrayAccess
         $this->attributeList['class'][] = $value;
         return $this;
     }
+
+    /** @api */
+   public function mmfile(string $type = 'default', string $file =''):string
+   {
+     return $this->set('src', rex_media_manager::getUrl($type, $file));
+   } 
+   /** @api */
+   public function content(string $content =''):string
+   {
+     return $this->text($content);
+   }
 
     /**
      * Remove a class from classList
