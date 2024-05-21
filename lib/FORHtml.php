@@ -12,9 +12,9 @@ class FORHtml implements \ArrayAccess
 {
     public static bool $avoidXSS = false;
     public static int $outputLanguage = ENT_HTML5; // Changed to ENT_HTML5
-    protected static ?Markup $instance = null;
-    protected ?Markup $top = null;
-    protected ?Markup $parent = null;
+    protected static ?FORHtml $instance = null;
+    protected ?FORHtml $top = null;
+    protected ?FORHtml $parent = null;
     protected ?string $tag = null;
     public array $attributeList = [];
     protected array $classList = [];
@@ -25,21 +25,21 @@ class FORHtml implements \ArrayAccess
         'img', 'br', 'hr', 'input', 'area', 'link', 'meta', 'param', 'base', 'col', 'command', 'keygen', 'source', 'track', 'wbr'
     ];
 
-    protected function __construct(string $tag, ?Markup $top = null)
+    protected function __construct(string $tag, ?FORHtml $top = null)
     {
         $this->tag = $tag;
         $this->top = $top;
         $this->autoclosed = in_array($this->tag, $this->autocloseTagsList);
     }
 
-    public static function __callStatic(string $tag, array $content): Markup
+    public static function __callStatic(string $tag, array $content): FORHtml
     {
         return self::createElement($tag)
             ->attr(count($content) && is_array($content[0]) ? array_pop($content) : [])
             ->text(implode('', $content));
     }
 
-    public function __call(string $tag, array $content): Markup
+    public function __call(string $tag, array $content): FORHtml
     {
         return $this
             ->addElement($tag)
@@ -47,18 +47,18 @@ class FORHtml implements \ArrayAccess
             ->text(implode('', $content));
     }
 
-    public function __invoke(): Markup
+    public function __invoke(): FORHtml
     {
         return $this->getParent();
     }
 
-    public static function createElement(string $tag = ''): Markup
+    public static function createElement(string $tag = ''): FORHtml
     {
         self::$instance = new static($tag);
         return self::$instance;
     }
 
-    public function addElement(string $tag = ''): Markup
+    public function addElement(string $tag = ''): FORHtml
     {
         $htmlTag = (is_object($tag) && $tag instanceof self) ? clone $tag : new static($tag);
         $htmlTag->top = $this->getTop();
@@ -67,7 +67,7 @@ class FORHtml implements \ArrayAccess
         return $htmlTag;
     }
 
-    public function set(array|string $attribute, ?string $value = null): Markup
+    public function set(array|string $attribute, ?string $value = null): FORHtml
     {
         if (is_array($attribute)) {
             foreach ($attribute as $key => $value) {
@@ -79,7 +79,7 @@ class FORHtml implements \ArrayAccess
         return $this;
     }
 
-    public function attr(array|string $attribute, ?string $value = null): Markup
+    public function attr(array|string $attribute, ?string $value = null): FORHtml
     {
         return $this->set(...func_get_args());
     }
@@ -104,28 +104,28 @@ class FORHtml implements \ArrayAccess
         unset($this->attributeList[$attribute]);
     }
 
-    public function text(string $value): Markup
+    public function text(string $value): FORHtml
     {
         $this->addElement('')->text = static::$avoidXSS ? static::unXSS($value) : $value;
         return $this;
     }
 
-    public function getTop(): Markup
+    public function getTop(): FORHtml
     {
         return $this->top ?? $this;
     }
 
-    public function getParent(): ?Markup
+    public function getParent(): ?FORHtml
     {
         return $this->parent;
     }
 
-    public function getFirst(): ?Markup
+    public function getFirst(): ?FORHtml
     {
         return $this->parent->content[0] ?? null;
     }
 
-    public function getPrevious(): Markup
+    public function getPrevious(): FORHtml
     {
         $prev = $this;
         if ($this->parent !== null) {
@@ -139,7 +139,7 @@ class FORHtml implements \ArrayAccess
         return $prev;
     }
 
-    public function getNext(): ?Markup
+    public function getNext(): ?FORHtml
     {
         $next = null;
         if ($this->parent !== null) {
@@ -157,12 +157,12 @@ class FORHtml implements \ArrayAccess
         return $next;
     }
 
-    public function getLast(): ?Markup
+    public function getLast(): ?FORHtml
     {
         return $this->parent->content[array_key_last($this->parent->content)] ?? null;
     }
 
-    public function remove(): ?Markup
+    public function remove(): ?FORHtml
     {
         if ($this->parent !== null) {
             foreach ($this->parent->content as $key => $value) {
@@ -220,7 +220,7 @@ class FORHtml implements \ArrayAccess
      * @param string $value
      * @return Markup
      */
-    public function id(string $value): Markup
+    public function id(string $value): FORHtml
     {
         return $this->set('id', $value);
     }
@@ -230,7 +230,7 @@ class FORHtml implements \ArrayAccess
      * @param string $value
      * @return Markup
      */
-    public function addClass(string $value): Markup
+    public function addClass(string $value): FORHtml
     {
         if (!isset($this->attributeList['class']) || is_null($this->attributeList['class'])) {
             $this->attributeList['class'] = [];
@@ -255,7 +255,7 @@ class FORHtml implements \ArrayAccess
      * @param string $value
      * @return Markup
      */
-    public function removeClass(string $value): Markup
+    public function removeClass(string $value): FORHtml
     {
         if (!is_null($this->attributeList['class'])) {
             unset($this->attributeList['class'][array_search($value, $this->attributeList['class'])]);
