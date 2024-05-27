@@ -25,61 +25,55 @@ echo $medium;
 ```
 
 
-## Beispiel Uikit-Cards in Section und Container aus YForm
+## Beispiel Uikit-Cards fragment in Section und Container aus YForm
 
 ```php
-$table_urlaubsziele = rex_yform_manager_table::get('rex_urlaubsziele');
-$query = $table_urlaubsziele->query();
-$urlaubsziele = $query->find();
+$tableUrlaubsziele = rex_yform_manager_table::get('rex_urlaubsziele');
+$urlaubsziele = $tableUrlaubsziele->query()->find();
 $cards = [];
-// Card erzeugen
+
 foreach ($urlaubsziele as $ziel) {
-    $media = [];
-    if (isset($ziel->media)) {
-        $media = array_filter(explode(",", $ziel->media));
+    $mediaList = isset($ziel->media) ? array_filter(explode(",", $ziel->media)) : [];
+    $media = '';
+
+    if (!empty($mediaList)) {
+        $media = FORHtml::createElement('img')
+            ->addClass('uk-width-1-1')
+            ->set('alt', 'Bild zum ' . $ziel->title)
+            ->set('title', 'Bild zum ' . $ziel->title)
+            ->set('uk-tooltip', '')
+            ->mmfile('card_image', $mediaList[0])
+            ->toString();
     }
-    $fragment = new rex_fragment();
-    $fragment->setVar('help', false);
-    $medium = '';
-    if ($media) {
-        // Erstelle Medium mit FORHtml mmfile holt ein mediamanager bild
-        $medium = FORHtml::createElement('img')
-             ->addClass('uk-width-1-1')
-             ->set('alt', 'Bild zum' . $ziel->title)
-             ->set('title', 'Bild zum' . $ziel->title)
-             ->set('uk-tooltip ', '')
-             ->mmfile('card_image', $media[0]); 
-        $fragment->setVar('media', $medium, false);
-        $fragment->setVar('media_bottom', true, false);
-        $medium = '';
-    }
-    $attributes_main = [];
-    $attributes_main = ['class' => 'uk-card-default'];
-    $fragment->setVar('main_attributes', $attributes_main, false);
-    $fragment->setVar('title', $ziel->title, false);
-    $fragment->setVar('body', $ziel->infotext, false);
+
+    $fragmentVars = [
+        'help' => false,
+        'media' => $media,
+        'media_bottom' => !empty($media),
+        'main_attributes' => ['class' => 'uk-card-default'],
+        'title' => $ziel->title,
+        'body' => $ziel->infotext,
+    ];
+
     $cards[] = FORHtml::createElement('div')
-        ->text($fragment->parse('/uk3/card.php'))
+        ->addFragment('/uk3/card.php', $fragmentVars)
         ->addClass('wrapper uk-background-secondary');
 }
-// Sind Cards da?
-if ($cards) {
-    // Tag hinzufügen mittels FORHtml
 
-$output_cards = FORHtml::createElement('div')
-    ->text(implode($cards))
-    ->addClass('uk-child-width-1-3@m uk-grid-match')
-    ->set('uk-grid', '');
-   
+if ($cards) {
+    $outputCards = FORHtml::createElement('div')
+        ->text(implode('', $cards))
+        ->addClass('uk-child-width-1-3@m uk-grid-match')
+        ->set('uk-grid', '');
     
-$output = FORHtml::createElement('div')
-    ->addClass('uk-section uk-preserve-color uk-padding-large')
+    $output = FORHtml::createElement('div')
+        ->addClass('uk-section uk-preserve-color uk-padding-large')
         ->addElement('div')
         ->addClass('uk-container uk-container-large')
-        ->body($output_cards);
-echo $output;    
-}
+        ->body($outputCards);
 
+    echo $output;
+}
 ```
 ## based on: PHP HTML GENERATOR
 
