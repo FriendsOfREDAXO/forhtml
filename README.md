@@ -56,7 +56,7 @@ foreach ($urlaubsziele as $ziel) {
     ];
 
     $cards[] = FORHtml::createElement('div')
-        ->addFragment('/uk3/card.php', $fragmentVars)
+        ->parseFragment('/uk3/card.php', $fragmentVars)
         ->addClass('wrapper uk-background-secondary');
 }
 
