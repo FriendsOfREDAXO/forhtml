@@ -247,7 +247,7 @@ class FORHtml implements \ArrayAccess
     }
 
     // Neue Methode für Fragmente
-    public function addFragment(string $template, array $vars = []): FORHtml
+    public function parseFragment(string $template, array $vars = []): FORHtml
     {
         $fragment = new rex_fragment();
         foreach ($vars as $key => $value) {
