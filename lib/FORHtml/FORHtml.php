@@ -1,8 +1,7 @@
-<?php
-
 namespace FriendsOfRedaxo\FORHtml;
 
 use rex_media_manager;
+use rex_fragment;
 
 if (!defined('ENT_HTML5')) {
     define('ENT_HTML5', 48);
@@ -11,7 +10,7 @@ if (!defined('ENT_HTML5')) {
 class FORHtml implements \ArrayAccess
 {
     public static bool $avoidXSS = false;
-    public static int $outputLanguage = ENT_HTML5; // Changed to ENT_HTML5
+    public static int $outputLanguage = ENT_HTML5;
     protected static ?FORHtml $instance = null;
     protected ?FORHtml $top = null;
     protected ?FORHtml $parent = null;
@@ -215,21 +214,11 @@ class FORHtml implements \ArrayAccess
     }
 
     // Methods from HtmlTag
-    /**
-     * Shortcut to set('id', $value)
-     * @param string $value
-     * @return Markup
-     */
     public function id(string $value): FORHtml
     {
         return $this->set('id', $value);
     }
 
-    /**
-     * Add a class to classList
-     * @param string $value
-     * @return Markup
-     */
     public function addClass(string $value): FORHtml
     {
         if (!isset($this->attributeList['class']) || is_null($this->attributeList['class'])) {
@@ -239,27 +228,32 @@ class FORHtml implements \ArrayAccess
         return $this;
     }
 
-    /** @api */
-   public function mmfile(string $type = 'default', string $file =''):string
-   {
-     return $this->set('src', rex_media_manager::getUrl($type, $file));
-   } 
-   /** @api */
-   public function content(string $content =''):string
-   {
-     return $this->text($content);
-   }
-
-    /**
-     * Remove a class from classList
-     * @param string $value
-     * @return Markup
-     */
     public function removeClass(string $value): FORHtml
     {
         if (!is_null($this->attributeList['class'])) {
             unset($this->attributeList['class'][array_search($value, $this->attributeList['class'])]);
         }
+        return $this;
+    }
+
+    public function mmfile(string $type = 'default', string $file =''): string
+    {
+        return $this->set('src', rex_media_manager::getUrl($type, $file));
+    }
+
+    public function content(string $content =''): string
+    {
+        return $this->text($content);
+    }
+
+    // Neue Methode für Fragmente
+    public function addFragment(string $template, array $vars = []): FORHtml
+    {
+        $fragment = new rex_fragment();
+        foreach ($vars as $key => $value) {
+            $fragment->setVar($key, $value, false);
+        }
+        $this->text($fragment->parse($template));
         return $this;
     }
 }
