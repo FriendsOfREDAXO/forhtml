@@ -2,15 +2,6 @@
 
 PHP-HTML-Generator für REDAXO cms
 
-Einfache Fragmente zum sofortigen Einsatz. 
-
-Geplant: 
-
-- Fragmente für UiKit
-- Fragmente für Bootstrap
-- Fragmente für Tailwind
-
-
 ## Beispiel HTML erstellen
 
 ```php
