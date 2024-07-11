@@ -1,6 +1,6 @@
 # FORHtml
 
-PHP-HTML-Generator und Fragmentsammlung für REDAXO cms
+PHP-HTML-Generator für REDAXO cms
 
 Einfache Fragmente zum sofortigen Einsatz. 
 
