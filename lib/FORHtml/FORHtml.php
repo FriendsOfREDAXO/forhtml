@@ -1,3 +1,4 @@
+<?php 
 namespace FriendsOfRedaxo\FORHtml;
 
 use rex_media_manager;
