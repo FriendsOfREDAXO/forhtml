@@ -66,6 +66,86 @@ if ($cards) {
     echo $output;
 }
 ```
+
+### Beispiel Navigation mit navigation_array
+
+```php
+use FriendsOfRedaxo\FORHtml\FORHtml;
+use FriendsOfRedaxo\NavigationArray\BuildArray;
+
+function generateUikit3Navigation(int $startCategoryId = -1, int $depth = 4, bool $ignoreOfflines = true): string
+{
+    // Erstelle das Navigationsarray
+    $navigationBuilder = BuildArray::create()
+        ->setStart($startCategoryId)
+        ->setDepth($depth)
+        ->setIgnore($ignoreOfflines);
+
+    $navigationArray = $navigationBuilder->generate();
+
+    // Erstelle das HTML für die Navigation
+    $navHtml = FORHtml::createElement('ul')->addClass('uk-nav uk-nav-default');
+
+    foreach ($navigationArray as $navItem) {
+        $li = FORHtml::createElement('li');
+
+        // Überprüfen, ob das Element aktiv oder das aktuelle Element ist
+        if ($navItem['active']) {
+            $li->addClass('uk-active');
+        }
+
+        // Link für das Navigationselement
+        $a = FORHtml::createElement('a')
+            ->attr('href', $navItem['url'])
+            ->text($navItem['catName']);
+
+        $li->addElement($a);
+
+        // Prüfe, ob das Element Unterkategorien hat
+        if (!empty($navItem['children'])) {
+            $li->addElement(generateSubMenu($navItem['children']));
+        }
+
+        $navHtml->addElement($li);
+    }
+
+    return $navHtml->toString();
+}
+
+function generateSubMenu(array $children): FORHtml
+{
+    $subMenu = FORHtml::createElement('ul')->addClass('uk-nav-sub');
+
+    foreach ($children as $child) {
+        $li = FORHtml::createElement('li');
+
+        if ($child['active']) {
+            $li->addClass('uk-active');
+        }
+
+        $a = FORHtml::createElement('a')
+            ->attr('href', $child['url'])
+            ->text($child['catName']);
+
+        $li->addElement($a);
+
+        if (!empty($child['children'])) {
+            $li->addElement(generateSubMenu($child['children']));
+        }
+
+        $subMenu->addElement($li);
+    }
+
+    return $subMenu;
+}
+
+// Beispielnutzung:
+echo generateUikit3Navigation();
+
+```
+
+
+
 ## based on: PHP HTML GENERATOR
 
 Create HTML tags and render them efficiently.
