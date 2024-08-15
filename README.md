@@ -67,7 +67,7 @@ if ($cards) {
 }
 ```
 
-### Beispiel Navigation mit navigation_array
+## Beispiel Navigation mit navigation_array
 
 ```php
 use FriendsOfRedaxo\FORHtml\FORHtml;
