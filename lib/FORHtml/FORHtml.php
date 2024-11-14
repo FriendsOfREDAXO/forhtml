@@ -193,16 +193,19 @@ class FORHtml implements \ArrayAccess
 
     protected function attributesToString(): string
     {
-        $string = '';
-        $XMLConvention = in_array(static::$outputLanguage, [ENT_XML1, ENT_XHTML]);
-        foreach ($this->attributeList as $key => $value) {
-            if ($value !== null && ($value !== false || $XMLConvention)) {
-                $escapedValue = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
-                $string .= " {$key}=\"{$escapedValue}\"";
+    $string = '';
+    $XMLConvention = in_array(static::$outputLanguage, [ENT_XML1, ENT_XHTML]);
+    foreach ($this->attributeList as $key => $value) {
+        if ($value !== null && ($value !== false || $XMLConvention)) {
+            if (is_array($value)) {
+                $value = implode(' ', $value);
             }
+            $escapedValue = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+            $string .= " {$key}=\"{$escapedValue}\"";
         }
-        return $string;
     }
+    return $string;
+   }
 
     protected function contentToString(): string
     {
